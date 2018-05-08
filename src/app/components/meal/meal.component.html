@@ -1,5 +1,21 @@
 <!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  MEAL COMPONENT
+<div class="row">
+  <div class="col-sm-6 col-md-4" ng-if="meals.length > 0" *ngFor="let meal of meals">
+    <div class="thumbnail">
+      <span>{{meal.name}}</span>
+      <img src="images/{{meal.image}}" style="width:242px;height:200px">
+      <div class="caption">
+        <h3>{{meal.price}}€</h3>
+        <div>
+          <span>Quantité restante : </span>
+          <span>{{ meal.stock - meal.quantity }}</span>
+        </div>
+        <p>
+          <button class="btn btn-primary" (click)="addMealToBasket(meal)" role="button">Ajouter au panier</button>
+        </p>
+      </div>
+    </div>
+  </div>
 </div>
+
 
