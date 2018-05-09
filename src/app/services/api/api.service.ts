@@ -4,9 +4,11 @@ import { HttpClient } from '@angular/common/http';
 @Injectable()
 export class ApiService {
 
-  constructor(private http: HttpClient) { }
+  appUrl: String = 'http://localhost:3000';
+
+  constructor(private http: HttpClient) {}
 
   fetchMeals() {
-    return this.http.get('http://localhost:3000/meals');
+    return this.http.get(this.appUrl + '/meals');
   }
 }
