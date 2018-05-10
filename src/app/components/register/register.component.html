@@ -1,0 +1,86 @@
+<div class="py-5 text-center">
+  <h2>Créer un compte</h2>
+  <p class="lead">Créez vous un compte et passez votre première commande ! </p>
+</div>
+
+<div class="row">
+  <div class="col-md-8 order-md-1">
+    <h4 class="mb-3">Informations personnelle</h4>
+    <form class="needs-validation" novalidate="">
+      <div class="row">
+        <div class="col-md-6 mb-3">
+          <label for="firstName">Nom </label>
+          <input type="text" class="form-control" id="firstName" placeholder="" value="" required="">
+          <div class="invalid-feedback">
+            Champ obligatoire
+          </div>
+        </div>
+        <div class="col-md-6 mb-3">
+          <label for="lastName">Prénom</label>
+          <input type="text" class="form-control" id="lastName" placeholder="" value="" required="">
+          <div class="invalid-feedback">
+            Champ obligatoire
+          </div>
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <label for="username">Nom de compte </label>
+        <div class="input-group">
+          <div class="input-group-prepend">
+            <span class="input-group-text"><i class="fa fa-user"></i></span>
+          </div>
+          <input type="text" class="form-control" id="username" placeholder="ex : dupont.esgi" required="">
+          <div class="invalid-feedback" style="width: 100%;">
+            Champ obligatoire
+          </div>
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <label for="email">Email <span class="text-muted"></span></label>
+        <input type="email" class="form-control" id="email" placeholder="dupont@esgi.com">
+        <div class="invalid-feedback">
+          Rentrez un email valide.
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <label for="address">Adresse personelle pour être livré à domicile (optionel).</label>
+        <input type="text" class="form-control" id="address" placeholder=" 242 Rue du Faubourg Saint-Antoine, 75012 Paris">
+      </div>
+
+      <h4>Date de naissance</h4>
+      <div class="row">
+        <div class="col-md-5 mb-3">
+          <label for="day">Jour</label>
+          <input type="number" class="form-control" id="day" placeholder="31">
+        </div>
+        <div class="col-md-4 mb-3">
+          <label for="state">Mois</label>
+          <select class="custom-select d-block w-100" id="state" required="Selectionnez un mois">
+            <option value="0">Mois</option>
+            <option value="1">jan</option>
+            <option value="2">fév</option>
+            <option value="3">mar</option>
+            <option value="4">avr</option>
+            <option value="5">mai</option>
+            <option value="6">jun</option>
+            <option value="7">juil</option>
+            <option value="8">aoû</option>
+            <option value="9">sep</option>
+            <option value="10">oct</option>
+            <option value="11">nov</option>
+            <option value="12">déc</option>
+          </select>
+        </div>
+        <div class="col-md-3 mb-3">
+          <label for="year">Année</label>
+          <input type="number" class="form-control" id="year" value="2000" placeholder="YYYY">
+        </div>
+      </div>
+      <hr class="mb-4">
+      <button class="btn btn-primary btn-lg btn-block" type="submit">CREER MON COMPTE</button>
+    </form>
+  </div>
+</div>

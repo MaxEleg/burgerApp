@@ -8,11 +8,11 @@ import { Store } from '@ngrx/store';
 import * as MealActions from '../../stores/cart/cart.actions';
 
 @Component({
-  selector: 'app-card',
-  templateUrl: './card.component.html',
-  styleUrls: ['./card.component.css']
+  selector: 'app-shopping-cart',
+  templateUrl: './shopping-cart.component.html',
+  styleUrls: ['./shopping-cart.component.css']
 })
-export class CardComponent implements OnInit {
+export class ShoppingCartComponent implements OnInit {
   title = 'Meal app';
   meals: Meal[] = [];
 

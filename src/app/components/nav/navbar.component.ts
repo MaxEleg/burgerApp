@@ -1,4 +1,8 @@
 import { Component } from '@angular/core';
+import {Store} from '@ngrx/store';
+import {Meal} from '../../interfaces/index';
+import {AppState} from '../../interfaces/index';
+import {Observable} from 'rxjs/Observable';
 
 @Component({
   selector: 'app-navbar',
@@ -6,5 +10,14 @@ import { Component } from '@angular/core';
   styleUrls: ['./navbar.component.css']
 })
 export class NavBarComponent {
-  title = 'Meal app';
+  cart: Meal[] = [];
+
+  constructor( private mealStore: Store<AppState>) {
+    this.mealStore.select((state: AppState ) => {
+      return state.cart;
+    }).subscribe((meals: Meal[]) => {
+      this.cart = meals;
+    });
+  }
+
 }
