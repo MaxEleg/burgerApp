@@ -1,7 +1,12 @@
 import { Component } from '@angular/core';
-import {AccountService} from '../../services/account/account.service';
-import {ApiService} from '../../services/api/api.service';
 import { OnInit } from '@angular/core';
+import { Store } from '@ngrx/store';
+
+import {ApiService} from '../../services/api/api.service';
+import {User, AppState, WebAuth} from '../../interfaces';
+
+import * as AuthActions from '../../stores/auth/auth.actions';
+
 
 @Component({
   selector: 'app-register',
@@ -9,16 +14,36 @@ import { OnInit } from '@angular/core';
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit {
-  months: string[] = [
-    'Janvier',
+  errors: any[] = [];
 
-  ];
+  constructor(private apiService: ApiService,  private store: Store<AppState>) {}
 
-  constructor(private accountService: AccountService, private apiService: ApiService ) {
-    this.accountService = accountService;
-  }
   ngOnInit() {
+    this.store.select((state: AppState ) => {
+      return state.auth;
+    }).subscribe((auth: WebAuth) => {
+      console.log(auth);
+    });
   }
 
+  onSubmit(form) {
+    const newUser: User = form;
 
+    this.errors = [];
+    if (form.password !== form.confirmPassword) {
+      this.errors.push({msg : 'Le mot de passe de confirmation est inccorect.'});
+      return;
+    }
+    newUser.birthDate = new Date(form.birthYear, form.birthMonth - 1, form.birthDay).getTime();
+
+    this.apiService.createAccount(newUser).subscribe((result: WebAuth) => {
+      this.store.dispatch(new AuthActions.LoginIn(result));
+    }, result => {
+      if (Array.isArray(result.error)) {
+        this.errors = result.error;
+      } else {
+        this.errors = [result.error];
+      }
+    });
+  }
 }

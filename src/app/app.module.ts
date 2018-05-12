@@ -1,8 +1,11 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule   } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
 import { StoreModule } from '@ngrx/store';
+
 import { CartReducer } from './stores/cart/cart.reducer';
+import { AuthReducer } from './stores/auth/auth.reducer';
 
 import { AppRoutingModule } from './app-routing.module';
 import { RootComponent } from './components/root/root.component';
@@ -31,8 +34,10 @@ import { ApiService } from './services/api/api.service';
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
+    FormsModule,
     StoreModule.forRoot({
-      cart: CartReducer
+      cart: CartReducer,
+      auth: AuthReducer
     })
   ],
   providers: [
@@ -41,4 +46,4 @@ import { ApiService } from './services/api/api.service';
   ],
   bootstrap: [RootComponent]
 })
-export class AppModule { }
+export class AppModule {}

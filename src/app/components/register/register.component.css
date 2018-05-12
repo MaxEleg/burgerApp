@@ -1,0 +1,7 @@
+.errors-container{
+  padding-bottom: 8px;
+}
+
+.error {
+  color: red;
+}
