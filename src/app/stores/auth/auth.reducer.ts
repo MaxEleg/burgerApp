@@ -16,14 +16,17 @@ const defaultState: WebAuth = {
 export function AuthReducer(state: WebAuth = defaultState, action: Action) {
   switch (action.type ) {
     case AuthActions.LOGIN_IN:
-      return {
+      const newState: WebAuth = {
         firstName: action.payload.firstName,
         lastName: action.payload.lastName,
         rank: action.payload.rank,
         token: action.payload.token,
         isAuth: true
       };
+      localStorage.setItem('authItem', JSON.stringify(newState));
+      return newState;
     case AuthActions.LOG_OUT:
+      localStorage.setItem('authItem', JSON.stringify(defaultState));
       return defaultState;
     default:
       return state;

@@ -15,6 +15,7 @@ import * as AuthActions from '../../stores/auth/auth.actions';
 })
 export class RegisterComponent implements OnInit {
   errors: any[] = [];
+  auth: WebAuth;
 
   constructor(private apiService: ApiService,  private store: Store<AppState>) {}
 
@@ -22,7 +23,7 @@ export class RegisterComponent implements OnInit {
     this.store.select((state: AppState ) => {
       return state.auth;
     }).subscribe((auth: WebAuth) => {
-      console.log(auth);
+      this.auth = auth;
     });
   }
 

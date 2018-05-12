@@ -11,7 +11,7 @@ export class AddMeal implements Action {
 
 export class RemoveMeal implements Action {
   readonly type = REMOVE_MEAL;
-  constructor(public payload: Meal) {}
+  constructor(public payload: number) {}
 }
 
 export type All = AddMeal | RemoveMeal;

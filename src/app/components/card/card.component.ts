@@ -6,6 +6,7 @@ import { Meal } from '../../interfaces/index';
 import { AppState } from '../../interfaces/index';
 import { Store } from '@ngrx/store';
 import * as MealActions from '../../stores/cart/cart.actions';
+import { environment} from '../../../environments/environment';
 
 @Component({
   selector: 'app-card',
@@ -13,12 +14,13 @@ import * as MealActions from '../../stores/cart/cart.actions';
   styleUrls: ['./card.component.css']
 })
 export class CardComponent implements OnInit {
-  title = 'Meal app';
   meals: Meal[] = [];
+  devise = environment.devise;
 
   constructor(private accountService: AccountService, private apiService: ApiService, private store: Store<AppState> ) {
     this.accountService = accountService;
   }
+
   ngOnInit() {
     this.apiService.fetchMeals().subscribe((meals: Meal[]) => {
       this.meals = meals;
@@ -29,9 +31,6 @@ export class CardComponent implements OnInit {
 
   addMealToBasket(meal: Meal) {
     this.store.dispatch(new MealActions.AddMeal(meal));
-  }
-  removeToBasket(meal: Meal) {
-    this.store.dispatch(new MealActions.RemoveMeal(meal));
   }
 
 }

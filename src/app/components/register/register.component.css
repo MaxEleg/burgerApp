@@ -5,3 +5,7 @@
 .error {
   color: red;
 }
+
+.already-auth{
+  padding-top: 30px;
+}

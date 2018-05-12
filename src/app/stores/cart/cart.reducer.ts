@@ -3,17 +3,18 @@ import * as MealActions from './cart.actions';
 
 export type Action = MealActions.All;
 
-const newState = (state, newData) => {
-  return Object.assign({}, state, newData);
-};
 
 export function CartReducer(state: Meal[] = [], action: Action) {
-  console.log(state);
   switch (action.type ) {
     case MealActions.ADD_MEAL:
-      return [ ...state, action.payload];
+
+      const newState: Meal[] = [ ...state, action.payload];
+      localStorage.setItem('cartItems', JSON.stringify(newState));
+      return newState;
     case MealActions.REMOVE_MEAL:
-      return state.filter(meal => meal._id !== action.payload._id);
+      state.splice(action.payload, 1);
+      localStorage.setItem('cartItems', JSON.stringify(state));
+      return state;
     default:
       return state;
   }

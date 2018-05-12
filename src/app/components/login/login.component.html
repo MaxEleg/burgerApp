@@ -1,5 +1,5 @@
-<div class="row login-container">
-  <div *ngIf="!auth.isAuth" class="col md-3">
+<div *ngIf="!auth.isAuth" class="row login-container">
+  <div class="col md-3">
     <form #registerForm="ngForm" (ngSubmit)="onSubmit(registerForm.value)"  class="form-signin">
       <img class="mb-4 logo-top"  src="./assets/images/burger.png" alt="" width="72" height="72">
       <h1 class="h3 mb-3 font-weight-normal">S'authentifier</h1>
@@ -15,11 +15,12 @@
       <button class="btn btn-lg btn-primary btn-block" type="submit">Se connecter</button>
     </form>
   </div>
-  <div *ngIf="auth.isAuth">
-    <div class="col-xs-12 col-sm-12 col-md-12">
-      <h1 class="h3 mb-3 font-weight-normal">Vous etes connecté en tant que {{ auth.lastName }} {{ auth.firstName }}</h1>
-      <button class="btn btn-lg btn-primary btn-block" (click)="logout()">Se déconnecter</button>
-    </div>
-  </div>
 </div>
 
+<div *ngIf="auth.isAuth" class="row already-auth">
+  <div class="col-xs-3 col-sm-4 col-md-4"></div>
+  <div class="col-xs-3 col-sm-4 col-md-4">
+    <h1 class="h3 mb-3 font-weight-normal">Vous etes connecté en tant que {{ auth.lastName }} {{ auth.firstName }}</h1>
+    <button class="btn btn-lg btn-primary btn-block" (click)="logout()">Se déconnecter</button>
+  </div>
+</div>
