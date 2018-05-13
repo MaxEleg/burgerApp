@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import {HttpClient, HttpHeaders, HttpParams} from '@angular/common/http';
 import {environment} from '../../../environments/environment';
 import { User, WebAuth, Meal } from '../../interfaces';
+import {RequestOptions} from '@angular/http';
 
 @Injectable()
 export class ApiService {
@@ -28,5 +29,28 @@ export class ApiService {
     let urlCheckout;
     urlCheckout = environment.app_url + '/order/checkout';
     return this.http.post(urlCheckout, data);
+  }
+
+  fetchOrders(auth: WebAuth) {
+    let urlCheckout;
+    urlCheckout = environment.app_url + '/admin/orders/?token=' + auth.token;
+    return this.http.get(urlCheckout);
+  }
+
+  changeOrderStatus(data) {
+    let urlCheckout;
+    urlCheckout = environment.app_url + '/admin/order/changeStatus';
+
+    const body = new HttpParams()
+      .set(`token`, data.auth.token)
+      .set(`id`, data.id)
+      .set(`status`, data.status);
+
+    const headers = new HttpHeaders({ 'Content-Type': 'application/x-www-form-urlencoded' });
+
+    data.token = data.auth.token;
+    return this.http.post(urlCheckout, body, {
+      headers: headers
+    });
   }
 }

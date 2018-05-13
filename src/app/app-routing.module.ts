@@ -6,6 +6,8 @@ import { RegisterComponent } from './components/register/register.component';
 import { LoginComponent } from './components/login/login.component';
 import { ShoppingCartComponent } from './components/shopping-cart/shopping-cart.component';
 import { CheckoutCartComponent } from './components/checkout-cart/checkout-cart.component';
+import { EditComponent } from './components/edit/edit.component';
+import {BackOfficeComponent} from './components/backoffice/backoffice.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/card', pathMatch: 'full' },
@@ -14,6 +16,8 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'shopping-cart', component: ShoppingCartComponent },
   { path: 'checkout-cart', component: CheckoutCartComponent },
+  { path: 'edit', component: EditComponent },
+  { path: 'backoffice', component: BackOfficeComponent },
 ];
 
 @NgModule({

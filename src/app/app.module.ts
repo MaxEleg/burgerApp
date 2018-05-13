@@ -20,6 +20,9 @@ import { FooterComponent } from './components/footer/footer.component';
 
 import { AccountService } from './services/account/account.service';
 import { ApiService } from './services/api/api.service';
+import { EditComponent } from './components/edit/edit.component';
+import {BackOfficeComponent} from './components/backoffice/backoffice.component';
+import {BackOfficeOrdersComponent} from './components/backoffice-orders/backoffice-orders.component';
 
 
 @NgModule({
@@ -33,6 +36,9 @@ import { ApiService } from './services/api/api.service';
     FooterComponent,
     ShoppingCartItemsComponent,
     CheckoutCartComponent,
+    EditComponent,
+    BackOfficeComponent,
+    BackOfficeOrdersComponent,
   ],
   imports: [
     BrowserModule,
