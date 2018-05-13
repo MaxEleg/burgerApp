@@ -3,6 +3,7 @@ import { Meal } from '../../interfaces/index';
 
 export const ADD_MEAL = 'ADD_MEAL';
 export const REMOVE_MEAL = 'REMOVE_MEAL';
+export const REMOVE_ALL = 'REMOVE_ALL';
 
 export class AddMeal implements Action {
   readonly type = ADD_MEAL;
@@ -14,4 +15,9 @@ export class RemoveMeal implements Action {
   constructor(public payload: number) {}
 }
 
-export type All = AddMeal | RemoveMeal;
+export class RemoveAll implements Action {
+  readonly type = REMOVE_ALL;
+  constructor() {}
+}
+
+export type All = AddMeal | RemoveMeal | RemoveAll;

@@ -3,14 +3,14 @@ export interface Meal {
   name: string;
   price: number;
   image: string;
-  quantity: number;
   description: string;
-  stock: number;
 }
 
 export interface WebAuth {
   firstName: string;
   lastName: string;
+  mail: string;
+  phone: string;
   rank: number;
   token: string;
   isAuth: boolean;
@@ -26,7 +26,7 @@ export interface User {
   lastName: string;
   username: string;
   mail: string;
-  address: string;
+  phone: string;
   password: string;
   birthDate: any;
 }

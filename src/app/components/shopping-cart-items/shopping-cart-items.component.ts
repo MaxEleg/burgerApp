@@ -21,8 +21,9 @@ export class ShoppingCartItemsComponent implements OnInit {
   constructor(private accountService: AccountService, private apiService: ApiService, private store: Store<AppState> ) {
     this.accountService = accountService;
   }
-  ngOnInit() {
 
+  ngOnInit() {
+    this.calcTotal();
   }
 
   calcTotal() {
@@ -36,6 +37,10 @@ export class ShoppingCartItemsComponent implements OnInit {
   removeToBasket(at) {
     this.store.dispatch(new MealActions.RemoveMeal(at));
     this.calcTotal();
+  }
+
+  removeBasket() {
+    this.store.dispatch(new MealActions.RemoveAll());
   }
 
 }

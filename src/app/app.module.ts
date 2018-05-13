@@ -15,6 +15,7 @@ import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { ShoppingCartComponent } from './components/shopping-cart/shopping-cart.component';
 import { ShoppingCartItemsComponent } from './components/shopping-cart-items/shopping-cart-items.component';
+import { CheckoutCartComponent } from './components/checkout-cart/checkout-cart.component';
 import { FooterComponent } from './components/footer/footer.component';
 
 import { AccountService } from './services/account/account.service';
@@ -31,6 +32,7 @@ import { ApiService } from './services/api/api.service';
     ShoppingCartComponent,
     FooterComponent,
     ShoppingCartItemsComponent,
+    CheckoutCartComponent,
   ],
   imports: [
     BrowserModule,

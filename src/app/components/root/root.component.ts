@@ -14,7 +14,7 @@ export class RootComponent implements OnInit {
 
   constructor(private store: Store<AppState>) {}
 
-  ngOnInit() {
+  loadCartItems() {
     // We initiate cart store from last save
     const cartItems = JSON.parse(localStorage.getItem('cartItems'));
     if (Array.isArray(cartItems)) {
@@ -22,10 +22,19 @@ export class RootComponent implements OnInit {
         this.store.dispatch(new MealActions.AddMeal(meal));
       });
     }
+  }
+
+  loadWebAuth() {
     // We initiate auth store from last save
     const authItem: WebAuth = JSON.parse(localStorage.getItem('authItem'));
     if (authItem) {
       this.store.dispatch(new AuthActions.LoginIn(authItem));
     }
+  }
+
+  ngOnInit() {
+
+    this.loadCartItems();
+    this.loadWebAuth();
   }
 }

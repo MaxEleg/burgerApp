@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import {environment} from '../../../environments/environment';
-import { User } from '../../interfaces';
+import { User, WebAuth, Meal } from '../../interfaces';
 
 @Injectable()
 export class ApiService {
@@ -24,4 +24,9 @@ export class ApiService {
     return this.http.post(urlLogin, data);
   }
 
+  proceedCheckout(data: { payment: any, auth: WebAuth, cart: Meal[]}) {
+    let urlCheckout;
+    urlCheckout = environment.app_url + '/order/checkout';
+    return this.http.post(urlCheckout, data);
+  }
 }
